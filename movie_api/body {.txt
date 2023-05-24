@@ -1,0 +1,260 @@
+body {
+       background-image: url('../img/pokeball.png');
+       background-color: #99E9FF;
+       background-repeat: repeat-x;
+       background-attachment: fixed;
+       background-position: bottom;
+       margin: 80px 150px 60px 162px;
+     }
+     
+     header {
+       background: #67D2EF;
+       opacity: 0.95;
+     }
+     
+     .navbar-title {
+       font-family: 'Press Start 2P', cursive;
+       font-size: 35px;
+       color: black;
+       text-shadow: 2px 2px 2px #fff;
+       margin-left: 10px;
+     
+     }
+     
+     .navbar-title:hover {
+       color: black;
+       text-decoration: none
+     }
+     
+     
+     /* search bar: */
+     .pokemon-search {
+       border-radius: 0;
+       background-color: #4ea2b7;
+       border: 3px solid #000;
+       font-size: 10px;
+       max-width: 200px;
+       font-style: italic;
+       font-family: 'Press Start 2P', cursive;
+     }
+     
+     .pokemon-search::placeholder {
+       color: black;
+       opacity: 1;
+       font-style: italic;
+       font-family: 'Press Start 2P', cursive;
+     }
+     
+     .pokemon-search:focus {
+       background-color: #4ea2b7;
+       border: 3px solid #000;
+       color: black;
+       opacity: 1;
+       font-style: italic;
+       font-family: 'Press Start 2P', cursive;
+     }
+     
+     .pokemon-search:focus::placeholder {
+       color: transparent;
+     }
+     
+       
+     /* pokemon buttons */
+     .pokemon-list {
+       list-style-type: none;
+       /* grid fallback */
+       display: flex;
+       flex-wrap: wrap;
+       /* - */
+       display: grid;
+       grid-template-columns: 1fr 1fr 1fr;
+       gap: 50px;
+       text-align: center;
+       justify-content: center;
+     }
+     
+     
+     .list-group-item {
+       display: inline-block;
+       padding: 0;
+       border: none;
+       border-radius: 90px;
+       background: rgb(255, 255, 255, 0);
+     }
+     
+     .pokemonButton {
+       font-family: 'Press Start 2P', cursive;
+       display: inline-block;
+       padding: 10px 20px;
+       border-radius: 10px;
+       width: 100%;
+       font-size: 22px;
+       font-weight: bold;
+       background-color: #FBD10B;
+       box-shadow: 4px 4px 0px black;
+       border: 2px solid;
+       color: black;
+       transition: all 0.2s ease-in-out;
+     }
+     
+     .pokemonButton:hover,
+     .pokemonButton:active,
+     .pokemonButton:visited {
+       background-color: #FBD10B;
+       box-shadow: 4px 4px 0px black;
+       border: 2px solid;
+       transform: translateY(-2px);
+     }
+     
+     .pokemonButton:first-letter {
+       text-transform: uppercase;
+     }
+     
+     
+     /* Modal styling */
+     
+     .modal-dialog {
+       display: flex;
+       justify-content: center;
+       /* horizontal */
+     }
+     
+     .modal-content {
+       max-width: 320px;
+       background-color: #CB3448;
+       box-shadow: 5px 5px 5px #000;
+       border-radius: 20px;
+       border: 2px solid;
+       color: black;
+     }
+     
+     
+     .modal-info {
+       font-family: 'Press Start 2P', cursive;
+       max-width: 300px;
+       min-height: 500px;
+       background-color: #CB3448;
+       border-radius: 10px;
+       padding: 10px 10px 0 10px;
+     }
+     
+     .name,
+     .height,
+     .types {
+       font-family: 'Press Start 2P', cursive;
+     }
+     
+     
+     .modal-screen {
+       max-width: 92%;
+       min-height: 250px;
+       background-image: url("../img/pixel-bg.png");
+       background-size: cover;
+       display: flex;
+       margin: auto;
+       flex-direction: column;
+       border-radius: 10px;
+       border: solid;
+       border-width: 10px;
+       border-color: black;
+     }
+     
+     .pokemon-info {
+       font-size: 13px;
+       line-height: 20px;
+       max-width: 90%;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       margin: auto;
+       flex-direction: column;
+     }
+     
+     .title {
+       font-family: 'Press Start 2P', cursive;
+       text-transform: uppercase
+     }
+     
+     
+     
+     
+     li {
+       list-style-type: none;
+     }
+     
+     
+     
+     
+     
+     
+     
+     .lives {
+       max-width: 150px;
+       padding-right: 20px;
+       margin-bottom: 10px;
+     }
+     
+     
+     
+     /* Begin repsonsive styling */
+     
+     
+     @media all and (max-width: 1080px) {
+     
+       .pokemon-list {
+         grid-template-columns: 1fr 1fr;
+         gap: 40px;
+       }
+     
+       .search-list {
+         grid-template-columns: 1fr 1fr;
+       }
+     }
+     
+     
+     
+     @media all and (max-width: 576px) {
+     
+       .navbar-title {
+         padding-right: 10px;
+       }
+     
+       .pokemon-list {
+         flex-direction: column;
+         grid-template-columns: 1fr;
+         gap: 25px;
+       }
+     
+       .navbar {
+         display: flex;
+         justify-content: center;
+       }
+     
+       .pokemon-search::placeholder {
+         text-align: center;
+       }
+     
+     }
+     
+     
+     @media all and (max-width:486px) {
+     
+     .lives {
+       padding-top: 30px;
+       padding-bottom: -10px;
+     }
+     
+     }
+     
+     
+     @media all and (max-width:418px) {
+     
+       .pokemon-list {
+         grid-template-columns: 1fr;
+       }
+     
+       .search-list {
+         grid-template-columns: 1fr;
+       }
+     
+     }
