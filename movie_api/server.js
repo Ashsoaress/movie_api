@@ -1,4 +1,6 @@
 
+let addr = request.url;
+let q = url.parse(addr, true);
 
 if (q.pathname.includes('documentation')) {
   filePath = (__dirname + '/documentation.html');
