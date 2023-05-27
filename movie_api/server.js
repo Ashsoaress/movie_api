@@ -1,4 +1,7 @@
-
+http.createServer((request, response) => {
+  let addr = request.url,
+    q = url.parse(addr, true),
+    filePath = '';
 let addr = request.url;
 let q = url.parse(addr, true);
 
