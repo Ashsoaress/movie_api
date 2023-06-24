@@ -1,62 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <title>MyFlix Movie App</title>
-    <link rel="stylesheet" type="text/css" href="/css/styles.css">
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentation for myFlix</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
 <body>
-    <div>
-        <h1>MyFlix Movie API Dokumentation page</h1>
-        <h2>Objective</h2>
-            <p>To build the server-side component of a “Movies” web application using Node JS. 
-            The web application will provide users with access to information about different
-            movies, directors, and genres. Users will be able to sign up, update their
-            personal information, and create a list of their favorite movies.</p>
+  <div>
+    <h1>MyFlix Movie API</h1>
+    <h2>Objective</h2>
+    <p>
+      To build the server-side component of a “movies” web application. The web
+      application will provide users with access to information about different
+      movies, directors, and genres. Users will be able to sign up, update their
+      personal information, and create a list of their favorite movies.</p>
 
-        <h2>Features</h2>
-        <ul>
-            <li>Return a list of ALL movies to the user</li>
-            <li>Return data (description, genre, director, image URL, whether it's featured or not) about a single movie by title to the user</li>
-            <li>Return data about a genre (description) by name/title</li>
-            <li>Return data about a director (bio, birth year, death year) by name</li>
-            <li>Allow new users to register</li>
-            <li>Allow users to update their user info</li>
-            <li>Allow users to add a movie to their list of favorites</li>
-            <li>Allow users to remove a movie from their list of favorites</li>
-            <li>Allow existing users to deregister.</li>
-        </ul>
-    </div>
+    <h2>Features</h2>
+    <ul>
+      <li>Return a list of all movies to the user</li>
+      <li>Return data (description, genre, director, image URL, whether it's featured or not) about a single movie by
+        title to the user</li>
+      <li>Return data about a genre (description) by name/title</li>
+      <li>Return data about a director (bio, birth year, death year) by name</li>
+      <li>Return data about movies by genre</li>  
+      <li>Return data about movies by director</li>
+      <li>Return a list of all users</li>
+      <li>Return data about a single user</li>
+      <li>Allow new users to register</li>
+      <li>Allow users to add a movie to their list of favorites</li>
+      <li>Allow users to update their user info</li>
+      <li>Allow users to remove a movie from their list of favorites</li>
+      <li>Allow existing users to deregister</li>
+    </ul>
+  </div>
 
-    <h2>API Endpoint Documentation</h2>
+  <h2>API Endpoint Documentation</h2>
 
-    <table class="table">
-      <thead>
-        <tr>
-            <th>Business Logic</th>
-            <th>URL</th>
-            <th>HTTP Method</th>
-            <th>Query Parameters</th>
-            <th>Request Body Data Format</th>
-            <th>Response Body Data Format</th>
-        </tr>
-     </thead>
-
-     <tbody>   
+  <table>
+    <thead>
       <tr>
-          <td>Returns a list of all movies</td>
-          <td>/movies</td>
-          <td>GET</td>
-          <td>-</td>
-          <td>-</td>
-          <td>A JSON object holding data about all the movies</td>
+        <th>Business Logic</th>
+        <th>URL</th>
+        <th>HTTP Method</th>
+        <th>Query Parameters</th>
+        <th>Request Body Data Format</th>
+        <th>Response Body Data Format</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      <tr>
+        <td>Returns a list of all movies</td>
+        <td>/movies</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>A JSON object holding data about all the movies</td>
       </tr>
 
       <tr>
-        <td>Returns data about single movie by title</td>
-        <td>/movies/:Title</td>
+        <td>Returns data about a single movie by title</td>
+        <td>/movies/:title</td>
         <td>GET</td>
         <td>:title</td>
         <td>-</td>
@@ -64,21 +73,57 @@
       </tr>
 
       <tr>
-        <td>Returns data about a genre by title</td>
-        <td>/movies/genre/:genreName</td>
+        <td>Returns data about a genre by name</td>
+        <td>/movies/genreInfo/:genre</td>
         <td>GET</td>
-        <td>:genreName</td>
+        <td>:genre</td>
         <td>-</td>
         <td>A JSON object holding data about a specific genre of movie</td>
       </tr>
 
       <tr>
         <td>Returns data about a director by name</td>
-        <td>/movies/directors/:directorName</td>
+        <td>/movies/directorInfo/:director</td>
         <td>GET</td>
-        <td>:directorName</td>
+        <td>:director</td>
         <td>-</td>
         <td>A JSON object holding data about a specific director</td>
+      </tr>
+
+      <tr>
+        <td>Returns data about movies by genre</td>
+        <td>/movies/genre/:genre</td>
+        <td>GET</td>
+        <td>:genre</td>
+        <td>-</td>
+        <td>A JSON object holding data about movies of a certain genre</td>
+      </tr>
+
+      <tr>
+        <td>Returns data about movies by director</td>
+        <td>/movies/directors/:director</td>
+        <td>GET</td>
+        <td>:director</td>
+        <td>-</td>
+        <td>A JSON object holding data about movies by a certain director</td>
+      </tr>
+
+      <tr>
+        <td>Returns a list of all users</td>
+        <td>/users</td>
+        <td>GET</td>
+        <td>-</td>
+        <td>-</td>
+        <td>A JSON object holding data about all users</td>
+      </tr>
+
+      <tr>
+        <td>Returns data about a single user</td>
+        <td>/users/:username</td>
+        <td>GET</td>
+        <td>:username</td>
+        <td>-</td>
+        <td>A JSON object holding data about a single user</td>
       </tr>
 
       <tr>
@@ -86,47 +131,52 @@
         <td>/users</td>
         <td>POST</td>
         <td>-</td>
-        <td>A JSON object holding data about the users to add, structured like this:
-            { "Username": "String","Password": "String","Email": "String","Birthday": "Date"}</td>
-           <td>A JSON object holding data about the user that was added, structured like this 
-            { "username" : "Test1", "Password": "1234", "Email": "testtest@gmail.com", "Birthday": "1988-08-08", "favorite movie" : [] } including an ID </td>
+        <td>A JSON object holding data about the user to add, structured like: {"name": "Tom", "password": "1234",
+          "email": "tom@gmail.com", "birthdate": "1983-10-08"}</td>
+        <td>A JSON object holding data about the the new user</td>
       </tr>
+
+      <tr>
+        <td>Allows users to add a movie to their favorites</td>
+        <td>/users/:username/movies/:movieID</td>
+        <td>POST</td>
+        <td>:username, :movieID</td>
+        <td>-</td>
+        <td>A JSON object holding data about the updated user</td>
+      </tr>
+
 
       <tr>
         <td>Allows users to update their user info</td>
-        <td>/users/:Username</td>
+        <td>/users/:username</td>
         <td>PUT</td>
-        <td>:Username</td>
-        <td>-</td>
-        <td>A JSON object holding data about the updated user information</td>
+        <td>:username</td>
+        <td>A JSON object holding data about the user that was updated, structured like: {"name": "Tom", "password": "1234",
+          "email": "tom@gmail.com", "birthdate": "1983-10-08"}</td>
+        <td>A JSON object holding data about the updated user</td>
       </tr>
 
-      <tr>
-        <td>Allows users to add a movie to their favourites</td>
-        <td>/users/:Username/movies/:MovieID</td>
-        <td>POST</td>
-        <td>:Username,:MovieID</td>
-        <td>-</td>
-        <td>A JSON object holding data about the user and the movie that was added</td>
-      </tr>
 
       <tr>
-        <td>Allows users to remove a movie from their favourites</td>
-        <td>/users/:Username/movies/:MovieID</td>
+        <td>Allows users to remove a movie from their favorites</td>
+        <td>/users/:username/movies/:movieID</td>
         <td>DELETE</td>
-        <td>:Username,:MovieID</td>
+        <td>:username, :movieID</td>
         <td>-</td>
-        <td>A JSON object holding data about the user and the movie that was removed</td>
+        <td>A JSON object holding data about the updated user</td>
       </tr>
 
       <tr>
-        <td>Allows existing users to deregister</td>
-        <td>/users/:Username</td>
+        <td>Allows users to deregister</td>
+        <td>/users/:username</td>
         <td>DELETE</td>
+        <td>:username</td>
         <td>-</td>
-        <td>-</td>
-        <td>A text message indicating whether the user has successfully deregistered</td>
+        <td>A message confirming the user was deleted</td>
       </tr>
-    
+
+    </tbody>
+  </table>
 </body>
+
 </html>
