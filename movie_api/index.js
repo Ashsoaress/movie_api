@@ -79,7 +79,7 @@ app.get('/movies/:title', passport.authenticate('jwt', { session: false }), (req
 });
 
 // displaying data about a genre by genre name
-app.get('/movies/genreInfo/:genre', passport.authenticate('jwt', { session: false }), (req, res) => {
+app.get('/movies/genreInfo/:genre',  (req, res) => {
   Movies.findOne({ 'genre.name': req.params.genre })
     .then((movie) => {
       if (!movie) {
